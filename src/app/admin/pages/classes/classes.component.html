@@ -1,0 +1,24 @@
+<div class="container mt-4">
+    <div class="d-flex justify-content-center fs-3 my-5">Аудитории</div>
+    <form class="add-form" [formGroup]="classForm" (ngSubmit)="onSubmit()">
+        <div class="input-group mb-3">
+            <input formControlName="number" type="text" class="form-control" placeholder="Группа" aria-label="Группа" aria-describedby="add-group">
+            <button class="btn btn-outline-secondary" type="submit" id="add-group">Добавить</button>
+        </div>
+    </form>
+    <div class="table bg-light">
+        <div *ngIf="this.classrooms" class="grid">
+            <div class="p-4 fs-4">Номер</div>
+        </div>
+        @for (item of classrooms; track $index) {
+            <div id={{item.id}} class="grid align-items-center p-4 fs-3">
+                <div class="me-3">{{item.number}}</div>
+                <button (click)="deleteClassroom($event)" class="btn btn-danger">Удалить</button>
+
+            </div>
+        } @empty {
+            <div class="p-4 mt-5 fs-3 text-center">Аудитории еще не добавлены</div>
+        }
+
+    </div>
+</div>

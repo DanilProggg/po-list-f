@@ -1,0 +1,19 @@
+.field {
+    position: absolute;
+    left: 0;
+    top:0;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    z-index: 999;
+}
+
+.window {
+    margin-top: 70px;
+    padding: 10px 60px;
+    font-size: 20px;
+    background-color: azure;
+    color: green;
+    border: solid 2px var(--bs-blue);
+    border-radius: 5px;
+}

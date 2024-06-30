@@ -1,0 +1,65 @@
+<div *ngIf="show" class="bg">
+    <div class="window">
+        <div class="top-side">
+            <div class="form-check form-switch">
+                <input [(ngModel)]="sub_groups" class="form-check-input" type="checkbox" id="sub">
+                <label class="form-check-label" for="sub">Разделение на подгруппы</label>
+            </div>
+        </div>
+        <div class="info">
+            <div></div>
+        </div>
+        <div class="main-aria">
+            <div class="rasp">
+                <div class="sub1">
+                    <div *ngIf="sub_groups" class="sub-num">Подгруппа I</div>
+                    <ng-select [virtualScroll]="true" [clearable]="false" placeholder="Дисциплина" [ngModel]="discipline_map.get(1)" (ngModelChange)="this.discipline_map.set(1, $event)">
+                        <ng-option value="0">---</ng-option>
+                        @for (item of disciplines; track item) {
+                            <ng-option [value]="item.id">{{item.name}}</ng-option>
+                        }
+                    </ng-select>
+                    <ng-select [clearable]="false" placeholder="Преподаватель" [ngModel]="teacher_map.get(1)" (ngModelChange)="this.teacher_map.set(1, $event)">
+                        <ng-option value="0">---</ng-option>
+                        @for (item of teachers; track item) {
+                        <ng-option [value]="item.id">{{item.name}}</ng-option>
+                        }
+                    </ng-select>
+                    <ng-select [clearable]="false" placeholder="Аудитория" [ngModel]="classroom_map.get(1)" (ngModelChange)="this.classroom_map.set(1, $event)">
+                        <ng-option value="0">---</ng-option>
+                        @for (item of classrooms; track item) {
+                        <ng-option [value]="item.id">{{item.number}}</ng-option>
+                        }
+                    </ng-select>
+                </div>
+                <div *ngIf="sub_groups" class="sub2">
+                    <div class="sub-num">Подгруппа II</div>
+                    <ng-select [clearable]="false" placeholder="Дисциплина" [ngModel]="discipline_map.get(2)" (ngModelChange)="this.discipline_map.set(2, $event)">
+                            <ng-option value="0">---</ng-option>
+                            @for (item of disciplines; track item) {
+                            <ng-option [value]="item.id">{{item.name}}</ng-option>
+                            }
+                    </ng-select>
+                    <ng-select [clearable]="false" placeholder="Преподаватель" [ngModel]="teacher_map.get(2)" (ngModelChange)="this.teacher_map.set(2, $event)">
+                        <ng-option value="0">---</ng-option>
+                        @for (item of teachers; track item) {
+                            <ng-option [value]="item.id">{{item.name}}</ng-option>
+                        }
+                    </ng-select>
+                    <ng-select [clearable]="false" placeholder="Аудитория" [ngModel]="classroom_map.get(2)" (ngModelChange)="this.classroom_map.set(2, $event)">
+                        <ng-option value="0">---</ng-option>
+                        @for (item of classrooms; track item) {
+                            <ng-option [value]="item.id">{{item.number}}</ng-option>
+                        }
+                    </ng-select> 
+                </div>
+                
+                
+
+            </div>
+            <div class="bottom">
+                <button (click)="save()" class="btn btn-primary">Сохранить</button>
+            </div>
+        </div>
+    </div>
+</div>

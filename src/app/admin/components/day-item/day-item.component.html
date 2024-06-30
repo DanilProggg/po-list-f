@@ -1,0 +1,53 @@
+<div *ngIf="disciplines.length != 0" class="d-flex flex-column">
+    @for (item of [1,2,3,4,5,6]; track $index) {
+    <div class="item py-2">
+            <ul (click)="pare_click($event, item)">
+                @if (sub2_discipline_map.get(item) != 0 || sub_status_map.get(item) == true) { 
+                    <li [ngStyle]="sub1_style_map.get(item)" class="fw">I подгруппа</li>
+                }
+                <li [ngStyle]="sub1_style_map.get(item)">{{getDName(sub1_discipline_map.get(item))}}</li>
+                <li [ngStyle]="sub1_style_map.get(item)">{{getTName(sub1_teacher_map.get(item))}}</li>
+                <li [ngStyle]="sub1_style_map.get(item)" class="lf-li">{{getCName(sub1_classroom_map.get(item))}}</li>
+
+                @if (sub2_discipline_map.get(item) != 0 || sub_status_map.get(item) == true) { 
+                    <li [ngStyle]="sub1_style_map.get(item)" class="fw">II подгруппа</li>
+                }
+                <li [ngStyle]="sub1_style_map.get(item)">{{getDName(sub2_discipline_map.get(item))}}</li>
+                <li [ngStyle]="sub1_style_map.get(item)">{{getTName(sub2_teacher_map.get(item))}}</li>
+                <li [ngStyle]="sub1_style_map.get(item)">{{getCName(sub2_classroom_map.get(item))}}</li>
+            </ul>
+        <!-- <div>
+            <input type="checkbox" class="" [(ngModel)]="second_group[item]">
+            <div [ngStyle]="sub1_style_map.get(item)" class="p-2 ">
+                <select [ngModel]="sub1_discipline_map.get(item)"(ngModelChange)="this.sub1_discipline_map.set(item, $event)"  name="" id="">
+                    <option value=0>-------</option>
+                    <option *ngFor="let item of disciplines" value={{item.id}}>{{item.name}}</option>
+                </select>
+                <select [ngModel]="sub1_teacher_map.get(item)" (ngModelChange)="sub1_teacher_map.set(item, $event)" name="" id="">
+                    <option value=0>-------</option>
+                    <option *ngFor="let item of teachers" value={{item.id}}>{{item.name}}</option>
+                </select>
+                <select [ngModel]="sub1_classroom_map.get(item)"(ngModelChange)="sub1_classroom_map.set(item, $event)" name="" id="">
+                    <option value=0>-------</option>
+                    <option *ngFor="let item of classrooms" value={{item.id}}>{{item.number}}</option>
+                </select>
+            </div>
+        </div>
+
+        <div *ngIf="second_group[item]" [ngStyle]="sub2_style_map.get(item)" class="p-2">
+            <select [ngModel]="sub2_discipline_map.get(item)"(ngModelChange)="this.sub2_discipline_map.set(item, $event)"  name="" id="">
+                <option value=0>-------</option>
+                <option *ngFor="let item of disciplines" value={{item.id}}>{{item.name}}</option>
+            </select>
+            <select [ngModel]="sub2_teacher_map.get(item)" (ngModelChange)="sub2_teacher_map.set(item, $event)" name="" id="">
+                <option value=0>-------</option>
+                <option *ngFor="let item of teachers" value={{item.id}}>{{item.name}}</option>
+            </select>
+            <select [ngModel]="sub2_classroom_map.get(item)"(ngModelChange)="sub2_classroom_map.set(item, $event)" name="" id="">
+                <option value=0>-------</option>
+                <option *ngFor="let item of classrooms" value={{item.id}}>{{item.number}}</option>
+            </select>
+        </div> -->
+    </div>
+    }
+</div>

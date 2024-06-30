@@ -1,0 +1,57 @@
+
+.grid-column-7 {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(7,1fr);
+     /*Рамка дней*/
+
+}
+
+.title {
+    display: flex;
+    justify-content: center;
+    font-size: 24px;
+    writing-mode: vertical-rl;
+    text-orientation:sideways;
+}
+
+.pares_numbers { 
+    padding: 0 10px;
+    margin-left: 5px;
+    margin-top: 76px;
+    margin-bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    border-left: solid 1px black;
+    list-style: none;
+}
+
+.pares_numbers > * {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.subgroup_numbers {
+    padding: 0 10px;
+    margin-left: 5px;
+    margin-top: 76px;
+    margin-bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    border-left: solid 1px var(--bs-gray-500);
+    list-style: none;
+}
+
+.subgroup_numbers > * {
+    text-align: center;
+    font-size: 10px;
+    font-weight: 500;
+}
+
+.pares_header {
+    margin-top: 20px;
+    background-color: var(--bs-blue);
+    color: white;
+}

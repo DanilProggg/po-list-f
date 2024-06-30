@@ -1,0 +1,61 @@
+.bg {
+    position: fixed;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0,0,0,0.2);
+}
+
+.window {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    width: 50vw;
+    min-width: 500px;
+    border-radius: 10px;
+    background-color: aliceblue;
+    -webkit-box-shadow: 0px 4px 8px 0px rgba(34, 60, 80, 0.2);
+    -moz-box-shadow: 0px 4px 8px 0px rgba(34, 60, 80, 0.2);
+    box-shadow: 0px 4px 8px 0px rgba(34, 60, 80, 0.2);
+}
+/*
+    select background
+*/
+
+
+
+.top-side {
+    display: flex;
+}
+
+.info {
+    display: flex;
+}
+
+.main-aria{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.rasp {
+    padding-right: 10px;
+}
+
+.sub-num {
+    text-align: center;
+    font-weight: 500;
+    padding: 30px;
+}
+
+.bottom {
+    margin-top: 10px;
+    display: flex;
+    justify-content: end;
+}
+
+

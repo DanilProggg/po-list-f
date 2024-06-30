@@ -1,0 +1,12 @@
+<header class="px-4">
+    <a routerLink="/admin" class="fs-2">ADMIN</a>
+    <div class="d-flex">
+        <a routerLink="/admin" class="nav-link">Расписание</a>
+        <a routerLink="disciplines" class="nav-link">Дисциплины</a>
+        <a routerLink="teachers" class="nav-link">Преподаватели</a>
+        <a routerLink="classes" class="nav-link">Аудитории</a>
+        <a routerLink="groups" class="nav-link">Группы</a>
+        <a routerLink="stats/hours-tracking" class="nav-link">Статистика</a>
+    </div>
+    <button (click)="signOut()" class="btn btn-secondary">Выход</button>
+</header>

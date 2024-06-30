@@ -1,0 +1,40 @@
+@import "@ng-select/ng-select/themes/material.theme.css";
+/* You can add global styles to this file, and also import other style files */
+:root{
+    --main-color:#663399; /*#CC3333*/
+    --header-height:60px;
+
+    --text: #505569;
+    --bg: #0a1e64;
+    --main:var(--bs-blue); /*Отсавляю такой синий, так как он лучше смотрится*/
+    --second: #37ebff;
+}
+
+
+html, body { height: 100%; }
+body { 
+    margin: 0; 
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    background-color: rgb(243, 243, 243); 
+    overflow-x: hidden !important;
+}
+
+
+.border-blue {
+    border: var(--bs-blue) 2нpx solid;
+    border-radius: 5px;
+}
+
+/*
+    select cusomization
+*/
+.ng-value-container {
+    padding-left: 5px !important;
+}
+
+.ng-select-container {
+    background-color: white;
+}
+.ng-select {
+    padding: 0;
+}

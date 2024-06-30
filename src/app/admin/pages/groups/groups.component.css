@@ -1,0 +1,24 @@
+.table{
+    border-radius: 5px;
+}
+
+.table-item:hover{
+    background: var(--bs-gray-200);
+}
+
+.grid {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+}
+
+.date-start{
+    border-left: none;
+    border-top: none;
+    border-right: none;
+    background: none;
+    outline: none;
+    max-width: 300px;
+}
+
+

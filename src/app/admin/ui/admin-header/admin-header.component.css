@@ -1,0 +1,16 @@
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: var(--header-height);
+    background: var(--main);
+}
+header > *{
+    color: white;
+}
+
+a{
+    text-decoration: none;
+    margin: 0 10px;
+    cursor: pointer;
+}

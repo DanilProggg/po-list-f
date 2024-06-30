@@ -1,0 +1,10 @@
+.main{
+    min-height: calc(95vh - 60px);
+    /* 60px - header height*/
+}
+
+.dialog {
+    border-radius: 5px;
+    background-color: var(--bs-blue);
+    width:400px
+}

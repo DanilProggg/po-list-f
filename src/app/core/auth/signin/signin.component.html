@@ -1,0 +1,20 @@
+<div class="main container-field d-flex justify-content-center align-items-center">
+    <form class="dialog p-4" [formGroup]="auth" (ngSubmit)="onSubmit()">
+        <div class="mb-3 fs-4 text-center text-light">Авторизация</div>
+
+        <div class="form-floating mb-3 d-flex flex-column">
+            <input formControlName="login" type="email" class="form-control" id="floatingInput" placeholder="User">
+            <label for="floatingInput">Имя пользователя</label>
+        </div>
+
+        <div class="form-floating">
+            <input formControlName="password" type="password" class="form-control" id="floatingPassword" placeholder="12345678">
+            <label for="floatingPassword">Пароль</label>
+        </div>
+        <span *ngIf="error">Такого пользователя не существует</span>
+        <div class="d-flex justify-content-center">
+            <button class="mt-4 w-50 btn btn-light" type="submit">Войти</button>
+        </div>
+
+    </form>
+</div>

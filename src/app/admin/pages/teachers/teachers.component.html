@@ -1,0 +1,24 @@
+<div class="container mt-4">
+    <div class="d-flex justify-content-center fs-3 my-5">Преподаватели</div>
+    <form class="add-form" [formGroup]="teacherForm" (ngSubmit)="onSubmit()">
+        <div class="input-group mb-3">
+            <input formControlName="name" type="text" class="form-control" placeholder="Группа" aria-label="Группа" aria-describedby="add-group">
+            <button class="btn btn-outline-secondary" type="submit" id="add-group">Добавить</button>
+        </div>
+    </form>
+    <div class="table bg-light">
+        <div  *ngIf="this.teachers.length > 0"class="grid">
+            <div class="p-4 fs-4">ФИО</div>
+        </div>
+        @for (item of teachers; track $index) {
+            <div id={{item.id}} class="grid align-items-center p-4 fs-3">
+                <div class="me-3">{{item.name}}</div>
+                <button (click)="deleteTeacher($event)" class="btn btn-danger">Удалить</button>
+
+            </div>
+        } @empty {
+            <div class="p-4 mt-5 fs-3 text-center">Преподаватели еще не добавлены</div>
+        }
+
+    </div>
+</div>

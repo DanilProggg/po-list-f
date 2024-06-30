@@ -1,0 +1,48 @@
+.group_select {
+    margin-top: 10px;
+    width: 100%;
+    font-size: 20px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 5fr 1fr 1fr;
+    gap: 10px;
+}
+
+.title {
+    font-size: 16px;
+    font-weight: 500;
+    border-bottom: 3px solid var(--bs-blue);
+    
+}
+
+.title > * {
+    display: flex;
+    justify-content: center;
+    align-items: end;
+}
+
+li > * {
+    display: flex;
+    align-items: center;
+    
+}
+
+.pastHours,.planedHours {
+    display: flex;
+    justify-content: center;
+}
+
+
+.planedHours {
+    
+    width: 100%;
+    max-width: 100px;
+}

@@ -1,0 +1,14 @@
+
+.table{
+    border-radius: 5px;
+}
+
+.table-item:hover{
+    background: var(--bs-gray-200);
+}
+
+.grid {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+}
