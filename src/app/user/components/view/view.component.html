@@ -4,14 +4,13 @@
             {{ dates[0] | weekday }}
         </div>
         <div class="day-content">
-            <h3 class="subgroup">Подгруппа I</h3>
-            <div *ngIf="sortByDate(_pares_sub1, 0).length != 0" class="pare-title">
+            <div class="pare-title">
                 <div>№</div>
                 <div>Дисциплина</div>
                 <div>Преподаватель</div>
                 <div>Аудитория</div>
             </div>
-            @for (item of sortByDate(_pares_sub1, 0); track $index) {
+            @for (item of _pares; track $index) {
                 <div class="pare">
                     <div>{{item.number}}</div>
                     <div>{{getDisciplineName(item.discipline_id)}}</div>
@@ -23,41 +22,22 @@
                     Пару у подгруппы I нет
                 </div>
             }
-            <div class="line"></div>
-            <h3 class="subgroup">Подгруппа II</h3>
-            <div *ngIf="sortByDate(_pares_sub2, 0).length != 0" class="pare-title">
-                <div>№</div>
-                <div>Дисциплина</div>
-                <div>Преподаватель</div>
-                <div>Аудитория</div>
-            </div>
-            @for (item of sortByDate(_pares_sub2, 0); track $index) {
-                <div class="pare">
-                    <div>{{item.number}}</div>
-                    <div>{{getDisciplineName(item.discipline_id)}}</div>
-                    <div>{{getTeacherName(item.teacher_id)}}</div>
-                    <div>{{getClassroomNumber(item.classroom_id)}}</div>
-                </div>
-            } @empty {
-                <div class="message">
-                    Пару у подгруппы II нет
-                </div>
-            }
         </div>
     </div>
+    
+
     <div class="day">
         <div class="day-title">
             {{ dates[1] | weekday }}
         </div>
         <div class="day-content">
-            <h3 class="subgroup">Подгруппа I</h3>
-            <div *ngIf="sortByDate(_pares_sub1, 1).length != 0" class="pare-title">
+            <div class="pare-title">
                 <div>№</div>
                 <div>Дисциплина</div>
                 <div>Преподаватель</div>
                 <div>Аудитория</div>
             </div>
-            @for (item of sortByDate(_pares_sub1, 1); track $index) {
+            @for (item of _pares; track $index) {
                 <div class="pare">
                     <div>{{item.number}}</div>
                     <div>{{getDisciplineName(item.discipline_id)}}</div>
@@ -69,72 +49,7 @@
                     Пару у подгруппы I нет
                 </div>
             }
-            <div class="line"></div>
-            <h3 class="subgroup">Подгруппа II</h3>
-            <div *ngIf="sortByDate(_pares_sub2, 1).length != 0" class="pare-title">
-                <div>№</div>
-                <div>Дисциплина</div>
-                <div>Преподаватель</div>
-                <div>Аудитория</div>
-            </div>
-            @for (item of sortByDate(_pares_sub2, 1); track $index) {
-                <div class="pare">
-                    <div>{{item.number}}</div>
-                    <div>{{getDisciplineName(item.discipline_id)}}</div>
-                    <div>{{getTeacherName(item.teacher_id)}}</div>
-                    <div>{{getClassroomNumber(item.classroom_id)}}</div>
-                </div>
-            } @empty {
-                <div class="message">
-                    Пару у подгруппы II нет
-                </div>
-            }
         </div>
     </div>
-    <div class="day">
-        <div class="day-title">
-            {{ dates[2] | weekday }}
-        </div>
-        <div class="day-content">
-            <h3 class="subgroup">Подгруппа I</h3>
-            <div *ngIf="sortByDate(_pares_sub1, 2).length != 0" class="pare-title">
-                <div>№</div>
-                <div>Дисциплина</div>
-                <div>Преподаватель</div>
-                <div>Аудитория</div>
-            </div>
-            @for (item of sortByDate(_pares_sub1, 2); track $index) {
-                <div class="pare">
-                    <div>{{item.number}}</div>
-                    <div>{{getDisciplineName(item.discipline_id)}}</div>
-                    <div>{{getTeacherName(item.teacher_id)}}</div>
-                    <div>{{getClassroomNumber(item.classroom_id)}}</div>
-                </div>
-            } @empty {
-                <div class="message">
-                    Пару у подгруппы I нет
-                </div>
-            }
-            <div class="line"></div>
-            <h3 class="subgroup">Подгруппа II</h3>
-            <div *ngIf="sortByDate(_pares_sub2, 2).length != 0" class="pare-title">
-                <div>№</div>
-                <div>Дисциплина</div>
-                <div>Преподаватель</div>
-                <div>Аудитория</div>
-            </div>
-            @for (item of sortByDate(_pares_sub2, 2); track $index) {
-                <div class="pare">
-                    <div>{{item.number}}</div>
-                    <div>{{getDisciplineName(item.discipline_id)}}</div>
-                    <div>{{getTeacherName(item.teacher_id)}}</div>
-                    <div>{{getClassroomNumber(item.classroom_id)}}</div>
-                </div>
-            } @empty {
-                <div class="message">
-                    Пару у подгруппы II нет
-                </div>
-            }
-        </div>
-    </div>
+
 </main>

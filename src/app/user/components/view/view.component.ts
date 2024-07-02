@@ -24,8 +24,6 @@ export class ViewComponent implements OnInit{
   classroom: IClassroom[] = []
 
   _pares: IPare[] = []
-  _pares_sub1: IPare[] = []
-  _pares_sub2: IPare[] = []
 
   //0-сегодня, 1-завтра, 2-послезавтра
   dates = [new Date(), addDays(new Date(),1 ), addDays(new Date(), 2)]
@@ -39,10 +37,7 @@ export class ViewComponent implements OnInit{
 
     //Получение текущего расписания
     this.LService.getListByGroup(Number(id), format(this.dates[0],"yyyy-MM-dd"), format(this.dates[2],"yyyy-MM-dd")).subscribe(response=>{
-      response.forEach(element=>{
-        if(element.subgroup == 1) this._pares_sub1.push(element)
-        if(element.subgroup == 2) this._pares_sub2.push(element)
-      })
+      this._pares = response
     });
 
     this.LService.getClassrooms().subscribe(response => {

@@ -3,14 +3,14 @@
     <div class="item py-2">
             <ul (click)="pare_click($event, item)">
                 @if (sub2_discipline_map.get(item) != 0 || sub_status_map.get(item) == true) { 
-                    <li [ngStyle]="sub1_style_map.get(item)" class="fw">I подгруппа</li>
+                    <li [ngStyle]="sub1_style_map.get(item)" class="fw text-center">I подгруппа</li>
                 }
                 <li [ngStyle]="sub1_style_map.get(item)">{{getDName(sub1_discipline_map.get(item))}}</li>
                 <li [ngStyle]="sub1_style_map.get(item)">{{getTName(sub1_teacher_map.get(item))}}</li>
                 <li [ngStyle]="sub1_style_map.get(item)" class="lf-li">{{getCName(sub1_classroom_map.get(item))}}</li>
 
                 @if (sub2_discipline_map.get(item) != 0 || sub_status_map.get(item) == true) { 
-                    <li [ngStyle]="sub1_style_map.get(item)" class="fw">II подгруппа</li>
+                    <li [ngStyle]="sub1_style_map.get(item)" class="fw text-center">II подгруппа</li>
                 }
                 <li [ngStyle]="sub1_style_map.get(item)">{{getDName(sub2_discipline_map.get(item))}}</li>
                 <li [ngStyle]="sub1_style_map.get(item)">{{getTName(sub2_teacher_map.get(item))}}</li>

@@ -24,6 +24,10 @@ ul {
     height: 250px;
 }
 
+ul:hover{
+    cursor:pointer;
+}
+
 .lf-li {
     margin-bottom: 15px;
 }
@@ -34,7 +38,7 @@ ul {
 
 li{
     display: -webkit-box;
-    -webkit-line-clamp: 2;
+    -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
