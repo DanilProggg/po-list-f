@@ -1,12 +1,52 @@
-<header class="px-4">
+<header class="shadow-sm">
     <a routerLink="/admin" class="fs-2">ADMIN</a>
     <div class="d-flex">
         <a routerLink="/admin" class="nav-link">Расписание</a>
-        <a routerLink="disciplines" class="nav-link">Дисциплины</a>
-        <a routerLink="teachers" class="nav-link">Преподаватели</a>
-        <a routerLink="classes" class="nav-link">Аудитории</a>
+        <a routerLink="edit/disciplines" class="nav-link">Данные</a>        
         <a routerLink="groups" class="nav-link">Группы</a>
         <a routerLink="stats/hours-tracking" class="nav-link">Статистика</a>
+        <a routerLink="report" class="nav-link">Отчет</a>
     </div>
     <button (click)="signOut()" class="btn btn-secondary">Выход</button>
+
+
+   
+
+    <!-- <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+            <a routerLink="/admin" class="fs-2">ADMIN</a>
+            <ul class="navbar-nav mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a routerLink="/admin" class="nav-link">Расписание</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Данные
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li class="dropdown-item">
+                            <a routerLink="disciplines" class="nav-link">Дисциплины</a>
+                        </li>
+                        <li class="dropdown-item">
+                            <a routerLink="teachers" class="nav-link">Преподаватели</a>
+                        </li>
+                        <li class="dropdown-item">
+                            <a routerLink="classes" class="nav-link">Аудитории</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a routerLink="groups" class="nav-link">Группы</a>
+                </li>
+                <li class="nav-item">
+                    <a routerLink="stats/hours-tracking" class="nav-link">Статистика</a>
+                </li>
+                <li class="nav-item">
+                    <a routerLink="report" class="nav-link">Отчет</a>
+                </li>
+            </ul>
+            <button (click)="signOut()" class="btn btn-secondary">Выход</button>
+        </div>
+    </nav> -->
 </header>

@@ -36,7 +36,6 @@ export class DayItemComponent implements OnInit, OnChanges{
 
   constructor(
     private storage: DataStorageService,
-    private renderer: Renderer2,
     private modalService: ModalService
   ){}
 
@@ -63,15 +62,6 @@ export class DayItemComponent implements OnInit, OnChanges{
 
   
   ngOnInit(): void {
-
-    this.buttonClickListener = this.renderer.listen(
-      document.getElementById("save_button"),
-      'click',
-      (event) => this.loadToParentComponent()
-    );
-
-    
-
     //Подписка на список пар
     this.storage.$list.subscribe(response=>{
       
@@ -165,42 +155,8 @@ export class DayItemComponent implements OnInit, OnChanges{
       classroom_id: this.sub2_classroom_map.get(item)
     }
     if(sub2_pare.discipline_id != 0) temp.pares.push(sub2_pare)
-    console.log(temp)
     this.modalService.$pares.next(temp)
-  }
-
-  loadToParentComponent(){
-    let temp: IPare[] = []
-    for (let i = 0; i < 6; i++) {
-      if(this.sub1_discipline_map.get(i) != null && this.sub1_teacher_map.get(i) != null && this.sub1_classroom_map.get(i) != null){
-        let pare: IPare = {
-          number: i,
-          group_id: this.group.id,
-          subgroup:1,
-          sub:false,
-          date: format(this.date, "yyyy-MM-dd"),
-          classroom_id: this.sub1_classroom_map.get(i),
-          discipline_id: this.sub1_discipline_map.get(i),
-          teacher_id: this.sub1_teacher_map.get(i)
-        }
-        temp.push(pare)
-      }
-      if(this.sub2_discipline_map.get(i) != null && this.sub2_teacher_map.get(i) != null && this.sub2_classroom_map.get(i) != null){
-        let pare: IPare = {
-          number: i,
-          group_id: this.group.id,
-          subgroup:2,
-          sub:true,
-          date: format(this.date, "yyyy-MM-dd"),
-          classroom_id: this.sub2_classroom_map.get(i),
-          discipline_id: this.sub2_discipline_map.get(i),
-          teacher_id: this.sub2_teacher_map.get(i)
-        }
-        temp.push(pare)
-      }
-    }
-    this.saveDay.emit(temp)
-  }
+  } 
 
   //Вывод 
   getDName(id: number): string | void {

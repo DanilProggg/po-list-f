@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output, input } from '@angular/core';
+import { Component, ElementRef, EventEmitter, HostListener, Input, OnInit, Output, input } from '@angular/core';
 import { IGroup } from '../../../core/models/IGroup';
 import { IPare } from '../../../core/models/IPare';
 import { CommonModule, DatePipe } from '@angular/common';
@@ -7,8 +7,7 @@ import { ITeacher } from '../../../core/models/ITeacher';
 import { IClassroom } from '../../../core/models/IClassroom';
 import { DataStorageService } from '../../../core/services/data-storage.service';
 import { DayItemComponent } from '../day-item/day-item.component';
-import { filter } from 'rxjs';
-import { format } from 'date-fns';
+
 
 
 @Component({
@@ -52,6 +51,9 @@ export class GroupItemComponent implements OnInit{
       this.uploads = []
     }
   }
+
+ 
+
 
   
 

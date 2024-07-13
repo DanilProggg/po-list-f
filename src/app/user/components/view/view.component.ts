@@ -9,6 +9,8 @@ import { IDiscipline } from '../../../core/models/IDiscipline';
 import { ITeacher } from '../../../core/models/ITeacher';
 import { IClassroom } from '../../../core/models/IClassroom';
 import { RymsPipe } from '../../../core/pipes/ryms.pipe';
+import { IGroup } from '../../../core/models/IGroup';
+import { elementAt } from 'rxjs';
 
 @Component({
   selector: 'app-view',
@@ -24,6 +26,7 @@ export class ViewComponent implements OnInit{
   classroom: IClassroom[] = []
 
   _pares: IPare[] = []
+  group_name = ""
 
   //0-сегодня, 1-завтра, 2-послезавтра
   dates = [new Date(), addDays(new Date(),1 ), addDays(new Date(), 2)]
@@ -48,8 +51,15 @@ export class ViewComponent implements OnInit{
       this.disciplines = response
     })
 
-    this.LService.getTeachers().subscribe(responce => {
-      this.teachers = responce
+    this.LService.getTeachers().subscribe(response => {
+      this.teachers = response
+    })
+
+    this.LService.getGroups().subscribe(response => {
+      let groups: IGroup[] = response
+      groups.forEach(element=>{
+        if(element.id == Number(id)) this.group_name = element.name.toString()
+      })
     })
   }
 
@@ -79,5 +89,30 @@ export class ViewComponent implements OnInit{
       if(element.id == value) number = element.number;
     });
     return number;
+  }
+
+  secondGroupIsPresent(date: Date){
+    let bool = false
+    this._pares.forEach(element=>{
+      if(element.sub == true && element.date == format(date,"yyyy-MM-dd")) bool = true
+    })
+    console.log(bool)
+    return bool
+  }
+
+  getFirstSub(date: Date): IPare[] {
+    let temp: IPare[] = []
+    this._pares.forEach(element=>{
+      if((element.sub == true && element.subgroup == 1) || (element.sub == false && element.subgroup == 1)) temp.push(element)
+    })
+    return temp
+  }
+
+  getSecondSub(date: Date): IPare[] {
+    let temp: IPare[] = []
+    this._pares.forEach(element=>{
+      if((element.sub == true && element.subgroup == 2) || (element.sub == false && element.subgroup == 1)) temp.push(element)
+    })
+    return temp
   }
 }

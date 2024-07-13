@@ -83,35 +83,84 @@ export class ModalComponent implements OnInit, OnChanges{
 
   save(){
     let pares: IPare[] = []
-    for(let i = 1; i < 3; i++){
-      //Котсыльная проверка на строку
-      if(this.discipline_map.get(i) != 0 && this.discipline_map.get(i) != "---") {
-        let temp: IPare = {
-          group_id: this.group_id,
-          sub: this.sub_groups,
-          date: this.date,
-          number: this.number,
-          subgroup: i,
-          discipline_id: this.discipline_map.get(i),
-          teacher_id: this.teacher_map.get(i),
-          classroom_id: this.classroom_map.get(i)
-        }
-        pares.push(temp)
+    if(this.sub_groups){
+        //Котсыльная проверка на строку
+        if(this.discipline_map.get(1) != 0 && this.discipline_map.get(1) != "---") {
+          let temp: IPare = {
+            group_id: this.group_id,
+            sub: true,
+            date: this.date,
+            number: this.number,
+            subgroup: 1,
+            discipline_id: this.discipline_map.get(1),
+            teacher_id: this.teacher_map.get(1),
+            classroom_id: this.classroom_map.get(1)
+          }
+          pares.push(temp)
 
-      } else {
-        let temp: IPare = {
-          group_id: this.group_id,
-          sub: this.sub_groups,
-          date: this.date,
-          number: this.number,
-          subgroup: i,
-          discipline_id: 0,
-          teacher_id: 0,
-          classroom_id: 0
+        } else {
+          let temp: IPare = {
+            group_id: this.group_id,
+            sub: true,
+            date: this.date,
+            number: this.number,
+            subgroup: 1,
+            discipline_id: 0,
+            teacher_id: 0,
+            classroom_id: 0
+          }
+          pares.push(temp)
         }
-        pares.push(temp)
+        if(this.discipline_map.get(2) != 0 && this.discipline_map.get(2) != "---") {
+          let temp: IPare = {
+            group_id: this.group_id,
+            sub: true,
+            date: this.date,
+            number: this.number,
+            subgroup: 2,
+            discipline_id: this.discipline_map.get(2),
+            teacher_id: this.teacher_map.get(2),
+            classroom_id: this.classroom_map.get(2)
+          }
+          pares.push(temp)
+
+        } else {
+          let temp: IPare = {
+            group_id: this.group_id,
+            sub: true,
+            date: this.date,
+            number: this.number,
+            subgroup: 2,
+            discipline_id: 0,
+            teacher_id: 0,
+            classroom_id: 0
+          }
+          pares.push(temp)
+        }
+    //При отключении подгрупп
+    } else {
+      let temp: IPare = {
+        group_id: this.group_id,
+        sub: false,
+        date: this.date,
+        number: this.number,
+        subgroup: 1,
+        discipline_id: this.discipline_map.get(1),
+        teacher_id: this.teacher_map.get(1),
+        classroom_id: this.classroom_map.get(1)
       }
-      
+      pares.push(temp)
+      let temp2: IPare = {
+        group_id: this.group_id,
+        sub: false,
+        date: this.date,
+        number: this.number,
+        subgroup: 2,
+        discipline_id: 0,
+        teacher_id: 0,
+        classroom_id: 0
+      }
+      pares.push(temp2)
     }
     console.log(pares)
     this.LService.uploadParesV2(pares, format(this.storage.date[0],"yyyy-MM-dd"), format(this.storage.date[6],"yyyy-MM-dd")).subscribe(response=>{
@@ -124,5 +173,4 @@ export class ModalComponent implements OnInit, OnChanges{
     this.show = false
   }
 
-  
 }

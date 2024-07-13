@@ -1,4 +1,4 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { IPare } from '../models/IPare';
 import { Observable, groupBy } from 'rxjs';
@@ -9,6 +9,9 @@ import { IGroup } from '../models/IGroup';
 import { UserService } from './user.service';
 import { IPlanedStats } from '../models/IPlanedStats';
 import { IPastStats } from '../models/IPastStats';
+import { format } from 'date-fns';
+import { ht } from 'date-fns/locale';
+import { ApiService } from './api.service';
 
 @Injectable({
   providedIn: 'root'
@@ -16,12 +19,13 @@ import { IPastStats } from '../models/IPastStats';
 export class ListService {
 
 
-  domain: string ="http://localhost:8080"
-
-  constructor(private http: HttpClient, private auth: UserService) {
-
+  constructor(
+    private http: HttpClient, 
+    private auth: UserService, 
+    private api: ApiService) {
   }
   
+  domain: string = this.api.domain
   /*
     Методы для получения информации
   */
@@ -161,6 +165,16 @@ export class ListService {
     .append("hours", hours)
     return this.http.post<IPastStats[]>(this.domain+"/api/v1/stats/add", params, { headers: this.auth.get_credentials() })
 
+  }
+
+  downloadReport(group_id: number, from:Date, to: Date){
+    let params = new HttpParams()
+    .append("group_id", group_id)
+    .append("from", format(from,"yyyy-MM-dd"))
+    .append("to", format(to,"yyyy-MM-dd"))
+
+    let headers: HttpHeaders = this.auth.get_credentials();    
+    return this.http.post<number[]>(this.domain+"/api/v1/pare/report", params, { headers: headers })
   }
 
   

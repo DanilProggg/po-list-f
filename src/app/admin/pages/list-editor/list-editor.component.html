@@ -1,11 +1,8 @@
 <!-- Контейнер для таблицы создания расписания -->
 <div class="p-3 d-flex flex-column">
-    <div class="d-flex justify-content-between">
-        <div class="d-flex">
+    <div class="d-flex justify-content-end">
             <button (click)="goToPrevWeek()" class="btn btn-primary">Предыдущая неделя</button>
             <button (click)="goToNextWeek()" class="btn btn-primary ms-3">Следующая неделя</button>
-        </div>
-        <button id="save_button" class="btn btn-primary">Сохранить</button>
     </div>
     <app-group-item
         (saveGroup)="loadPares($event)"

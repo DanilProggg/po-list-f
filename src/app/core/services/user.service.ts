@@ -2,6 +2,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Token } from '@angular/compiler';
 import { Injectable } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
+import { ListService } from './list.service';
+import { ApiService } from './api.service';
 
 @Injectable({
   providedIn:"root"
@@ -10,11 +12,15 @@ export class UserService {
 
 
 
-  constructor(private http: HttpClient, private cookie: CookieService) {}
+  constructor(
+    private http: HttpClient, 
+    private cookie: CookieService,
+    private api: ApiService
+  ) {}
 
 
 
-  domain: string = "http://localhost:8080"
+  domain: string = this.api.domain
   /*
     Методы для авторизации
   */

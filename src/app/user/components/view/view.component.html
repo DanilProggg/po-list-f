@@ -1,55 +1,167 @@
 <main class="container d-flex flex-column align-items-center">
+    <h3>{{group_name}}</h3>
     <div class="day">
         <div class="day-title">
             {{ dates[0] | weekday }}
         </div>
         <div class="day-content">
+            @if (secondGroupIsPresent(dates[0])) {
+                <div class="sb">I подгруппа</div>
+            }
             <div class="pare-title">
                 <div>№</div>
                 <div>Дисциплина</div>
                 <div>Преподаватель</div>
                 <div>Аудитория</div>
             </div>
-            @for (item of _pares; track $index) {
-                <div class="pare">
-                    <div>{{item.number}}</div>
-                    <div>{{getDisciplineName(item.discipline_id)}}</div>
-                    <div>{{getTeacherName(item.teacher_id)}}</div>
-                    <div>{{getClassroomNumber(item.classroom_id)}}</div>
+            @if (_pares.length == 0) {
+                <div class="message">Занятий нет</div>
+            }
+            @if (!secondGroupIsPresent(dates[0])) {
+                @for (item of _pares; track $index) {
+                    <div class="pare">
+                        <div>{{item.number}}</div>
+                        <div>{{getDisciplineName(item.discipline_id)}}</div>
+                        <div>{{getTeacherName(item.teacher_id)}}</div>
+                        <div>{{getClassroomNumber(item.classroom_id)}}</div>
+                    </div>
+                }
+            } @else {
+                @for (item of getFirstSub(dates[0]); track $index) {
+                    <div class="pare">
+                        <div>{{item.number}}</div>
+                        <div>{{getDisciplineName(item.discipline_id)}}</div>
+                        <div>{{getTeacherName(item.teacher_id)}}</div>
+                        <div>{{getClassroomNumber(item.classroom_id)}}</div>
+                    </div>
+                }
+                
+                <div class="sb">II подгруппа</div>
+                <div class="pare-title">
+                    <div>№</div>
+                    <div>Дисциплина</div>
+                    <div>Преподаватель</div>
+                    <div>Аудитория</div>
                 </div>
-            } @empty {
-                <div class="message">
-                    Пару у подгруппы I нет
-                </div>
+                @for (item of getSecondSub(dates[0]); track $index) {
+                    <div class="pare">
+                        <div>{{item.number}}</div>
+                        <div>{{getDisciplineName(item.discipline_id)}}</div>
+                        <div>{{getTeacherName(item.teacher_id)}}</div>
+                        <div>{{getClassroomNumber(item.classroom_id)}}</div>
+                    </div>
+                }
             }
         </div>
     </div>
     
-
     <div class="day">
         <div class="day-title">
             {{ dates[1] | weekday }}
         </div>
         <div class="day-content">
+            @if (secondGroupIsPresent(dates[1])) {
+                <div class="sb">I подгруппа</div>
+            }
             <div class="pare-title">
                 <div>№</div>
                 <div>Дисциплина</div>
                 <div>Преподаватель</div>
                 <div>Аудитория</div>
             </div>
-            @for (item of _pares; track $index) {
-                <div class="pare">
-                    <div>{{item.number}}</div>
-                    <div>{{getDisciplineName(item.discipline_id)}}</div>
-                    <div>{{getTeacherName(item.teacher_id)}}</div>
-                    <div>{{getClassroomNumber(item.classroom_id)}}</div>
+            @if (_pares.length == 0) {
+                <div class="message">Занятий нет</div>
+            }
+            @if (!secondGroupIsPresent(dates[1])) {
+                @for (item of _pares; track $index) {
+                    <div class="pare">
+                        <div>{{item.number}}</div>
+                        <div>{{getDisciplineName(item.discipline_id)}}</div>
+                        <div>{{getTeacherName(item.teacher_id)}}</div>
+                        <div>{{getClassroomNumber(item.classroom_id)}}</div>
+                    </div>
+                }
+            } @else {
+                @for (item of getFirstSub(dates[0]); track $index) {
+                    <div class="pare">
+                        <div>{{item.number}}</div>
+                        <div>{{getDisciplineName(item.discipline_id)}}</div>
+                        <div>{{getTeacherName(item.teacher_id)}}</div>
+                        <div>{{getClassroomNumber(item.classroom_id)}}</div>
+                    </div>
+                }
+                
+                <div class="sb">II подгруппа</div>
+                <div class="pare-title">
+                    <div>№</div>
+                    <div>Дисциплина</div>
+                    <div>Преподаватель</div>
+                    <div>Аудитория</div>
                 </div>
-            } @empty {
-                <div class="message">
-                    Пару у подгруппы I нет
-                </div>
+                @for (item of getSecondSub(dates[1]); track $index) {
+                    <div class="pare">
+                        <div>{{item.number}}</div>
+                        <div>{{getDisciplineName(item.discipline_id)}}</div>
+                        <div>{{getTeacherName(item.teacher_id)}}</div>
+                        <div>{{getClassroomNumber(item.classroom_id)}}</div>
+                    </div>
+                }
             }
         </div>
     </div>
 
+    <div class="day">
+        <div class="day-title">
+            {{ dates[2] | weekday }}
+        </div>
+        <div class="day-content">
+            @if (secondGroupIsPresent(dates[2])) {
+                <div class="sb">I подгруппа</div>
+            }
+            <div class="pare-title">
+                <div>№</div>
+                <div>Дисциплина</div>
+                <div>Преподаватель</div>
+                <div>Аудитория</div>
+            </div>
+            @if (_pares.length == 0) {
+                <div class="message">Занятий нет</div>
+            }
+            @if (!secondGroupIsPresent(dates[2])) {
+                @for (item of _pares; track $index) {
+                    <div class="pare">
+                        <div>{{item.number}}</div>
+                        <div>{{getDisciplineName(item.discipline_id)}}</div>
+                        <div>{{getTeacherName(item.teacher_id)}}</div>
+                        <div>{{getClassroomNumber(item.classroom_id)}}</div>
+                    </div>
+                }
+            } @else {
+                @for (item of getFirstSub(dates[2]); track $index) {
+                    <div class="pare">
+                        <div>{{item.number}}</div>
+                        <div>{{getDisciplineName(item.discipline_id)}}</div>
+                        <div>{{getTeacherName(item.teacher_id)}}</div>
+                        <div>{{getClassroomNumber(item.classroom_id)}}</div>
+                    </div>
+                }
+                
+                <div class="sb">II подгруппа</div>
+                <div class="pare-title">
+                    <div>№</div>
+                    <div>Дисциплина</div>
+                    <div>Преподаватель</div>
+                    <div>Аудитория</div>
+                </div>
+                @for (item of getSecondSub(dates[2]); track $index) {
+                    <div class="pare">
+                        <div>{{item.number}}</div>
+                        <div>{{getDisciplineName(item.discipline_id)}}</div>
+                        <div>{{getTeacherName(item.teacher_id)}}</div>
+                        <div>{{getClassroomNumber(item.classroom_id)}}</div>
+                    </div>
+                }
+            }
+        </div>
+    </div>
 </main>

@@ -7,6 +7,8 @@ import { GroupsComponent } from './pages/groups/groups.component';
 import { StatsComponent } from './pages/stats/stats.component';
 import { HoursTrackingComponent } from './pages/hours-tracking/hours-tracking.component';
 import { HoursTrackingByMonthComponent } from './pages/hours-tracking-by-month/hours-tracking-by-month.component';
+import { ReportComponent } from './pages/report/report.component';
+import { EditDataComponent } from './pages/edit-data/edit-data.component';
 
 export const admin: Routes = [
 
@@ -15,16 +17,22 @@ export const admin: Routes = [
         component: ListEditorComponent,
     },
     {
-        path: "disciplines",
-        component: DisciplinesComponent,
-    },
-    {
-        path: "teachers",
-        component: TeachersComponent,
-    },
-    {
-        path: "classes",
-        component: ClassesComponent,
+        path:"edit",
+        component: EditDataComponent,
+        children:[
+            {
+                path: "disciplines",
+                component: DisciplinesComponent,
+            },
+            {
+                path: "teachers",
+                component: TeachersComponent,
+            },
+            {
+                path: "classes",
+                component: ClassesComponent,
+            },
+        ]
     },
     {
         path: "groups",
@@ -43,6 +51,10 @@ export const admin: Routes = [
                 component: HoursTrackingByMonthComponent,
             },
         ]
-    }
+    },
+    {
+        path: "report",
+        component: ReportComponent,
+    },
 
 ];
