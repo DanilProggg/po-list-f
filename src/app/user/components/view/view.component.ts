@@ -11,6 +11,7 @@ import { IClassroom } from '../../../core/models/IClassroom';
 import { RymsPipe } from '../../../core/pipes/ryms.pipe';
 import { IGroup } from '../../../core/models/IGroup';
 import { elementAt } from 'rxjs';
+import { ar } from 'date-fns/locale';
 
 @Component({
   selector: 'app-view',
@@ -34,6 +35,7 @@ export class ViewComponent implements OnInit{
 
 
   ngOnInit():void{
+    console.log(this.sortByDate(this._pares,0,1))
 
     //Получение Id группы из пути в запросе
     const id = this.route.snapshot.paramMap.get('id');
@@ -41,6 +43,7 @@ export class ViewComponent implements OnInit{
     //Получение текущего расписания
     this.LService.getListByGroup(Number(id), format(this.dates[0],"yyyy-MM-dd"), format(this.dates[2],"yyyy-MM-dd")).subscribe(response=>{
       this._pares = response
+      console.log(this._pares)
     });
 
     this.LService.getClassrooms().subscribe(response => {
@@ -63,8 +66,8 @@ export class ViewComponent implements OnInit{
     })
   }
 
-  sortByDate(array: IPare[],value: number) : IPare[]{
-    return array.filter(pare => pare.date == format(this.dates[value],"yyyy-MM-dd"))
+  sortByDate(array: IPare[], date: number, subgroup: number) : IPare[]{
+    return array.filter(pare => pare.date == format(this.dates[date],"yyyy-MM-dd"))
   }
 
   getDisciplineName(value: number): string{
@@ -96,14 +99,13 @@ export class ViewComponent implements OnInit{
     this._pares.forEach(element=>{
       if(element.sub == true && element.date == format(date,"yyyy-MM-dd")) bool = true
     })
-    console.log(bool)
     return bool
   }
 
   getFirstSub(date: Date): IPare[] {
     let temp: IPare[] = []
     this._pares.forEach(element=>{
-      if((element.sub == true && element.subgroup == 1) || (element.sub == false && element.subgroup == 1)) temp.push(element)
+      if(element.subgroup == 1 && element.date == format(date, "yyyy-MM-dd")) temp.push(element)
     })
     return temp
   }
@@ -111,7 +113,7 @@ export class ViewComponent implements OnInit{
   getSecondSub(date: Date): IPare[] {
     let temp: IPare[] = []
     this._pares.forEach(element=>{
-      if((element.sub == true && element.subgroup == 2) || (element.sub == false && element.subgroup == 1)) temp.push(element)
+      if(element.subgroup == 2 && element.date == format(date, "yyyy-MM-dd")) temp.push(element)
     })
     return temp
   }

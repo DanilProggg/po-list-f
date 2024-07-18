@@ -18,7 +18,7 @@
                 <div class="message">Занятий нет</div>
             }
             @if (!secondGroupIsPresent(dates[0])) {
-                @for (item of _pares; track $index) {
+                @for (item of getFirstSub(dates[0]); track $index) {
                     <div class="pare">
                         <div>{{item.number}}</div>
                         <div>{{getDisciplineName(item.discipline_id)}}</div>
@@ -73,7 +73,7 @@
                 <div class="message">Занятий нет</div>
             }
             @if (!secondGroupIsPresent(dates[1])) {
-                @for (item of _pares; track $index) {
+                @for (item of getFirstSub(dates[1]); track $index) {
                     <div class="pare">
                         <div>{{item.number}}</div>
                         <div>{{getDisciplineName(item.discipline_id)}}</div>
@@ -82,7 +82,7 @@
                     </div>
                 }
             } @else {
-                @for (item of getFirstSub(dates[0]); track $index) {
+                @for (item of getFirstSub(dates[1]); track $index) {
                     <div class="pare">
                         <div>{{item.number}}</div>
                         <div>{{getDisciplineName(item.discipline_id)}}</div>
@@ -128,7 +128,7 @@
                 <div class="message">Занятий нет</div>
             }
             @if (!secondGroupIsPresent(dates[2])) {
-                @for (item of _pares; track $index) {
+                @for (item of getFirstSub(dates[2]); track $index) {
                     <div class="pare">
                         <div>{{item.number}}</div>
                         <div>{{getDisciplineName(item.discipline_id)}}</div>
