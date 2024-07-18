@@ -1,11 +1,12 @@
 <div class="container mt-3">
     <!-- Реактиваня форма для скачивания отчта-->
-        <ng-select bindValue="Выберите группу" [clearable]="false" placeholder="Группа" (change)="groupChange($event)" [ngModel]="selectedGroup" [ngModelOptions]="{standalone: true}" class="group_select mb-3">
+        <ng-select bindValue="Выберите группу" [clearable]="false" placeholder="Группа" [(ngModel)]="selectedGroup" [ngModelOptions]="{standalone: true}" class="group_select mb-3">
             <ng-option selected disabled value="Выберите группу">Выберите группу</ng-option>
             @for (item of groups; track $index) {
                 <ng-option value={{item.id}}>{{item.name}}</ng-option>
             }
         </ng-select>
+
         <div class="input-group mb-3">
             <span class="input-group-text" id="inputGroup-sizing-default">С</span>
             <input [(ngModel)]="from" type="date" class="form-control" aria-label="Sizing example input"

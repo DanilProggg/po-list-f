@@ -38,22 +38,6 @@ export class ReportComponent implements OnInit{
       this.groups = response
     })
   }
-
-
-  onSubmit(){
-    console.log(this.selectedGroup)
-    console.log(this.getFile.controls.from.value)
-    console.log(this.getFile.controls.to.value)
-
-    // this.LService.downloadReport(this.selectedGroup, this.getFile.controls.from.value!, this.getFile.controls.to.value!).subscribe(response=>{
-    //   let blob = base64StringToBlob(response.fileContent, {type:"application/vnd.ms-excel"})
-    // })
-  
-  }
-
-  groupChange(event: Event){
-    this.selectedGroup = Number(event)
-  }
   
   customDatePipe(date: Date){
     return format(date, "yyyy-MM-dd")
