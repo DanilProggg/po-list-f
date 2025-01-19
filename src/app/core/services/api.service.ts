@@ -7,5 +7,5 @@ export class ApiService {
 
   constructor() { }
 
-  public domain: string = "http://localhost:8080"
+  public domain: string = "http://podg.sf-misis.ru/api-pass
 }
