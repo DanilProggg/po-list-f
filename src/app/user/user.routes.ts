@@ -14,7 +14,8 @@ export const user: Routes = [
             {
                 path:"view/:id",
                 component:ViewComponent,
-            }
+            },
+            { path: '**', redirectTo: '' }
         ]
     }  
 ];
