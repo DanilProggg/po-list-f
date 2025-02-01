@@ -56,5 +56,6 @@ export const admin: Routes = [
         path: "report",
         component: ReportComponent,
     },
+    { path: '**', redirectTo: '/admin', pathMatch: 'full' }
 
 ];
